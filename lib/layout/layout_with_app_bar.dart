@@ -13,13 +13,17 @@ class LayoutWithAppBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Layout(
-      child: Column(children: [
-        const SizedBox(height: 8),
-        const MyAppBar(),
-        Expanded(
-          child: child,
-        ),
-      ]),
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.start,
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: [
+          const SizedBox(height: 8),
+          const MyAppBar(),
+          Expanded(
+            child: child,
+          ),
+        ],
+      ),
     );
   }
 }

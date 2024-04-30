@@ -4,11 +4,12 @@ import 'package:flutter_state_management/model/product_item.dart';
 
 class ProductsApi {
   final _products = List.generate(
-    10, (index) => ProductItem(
+    10,
+    (index) => ProductItem(
       id: index.toString(),
       name: "Product $index",
       description: "This is description for product at index: $index",
-      price: Random().nextInt(50).toDouble() + 10.0,
+      price: Random().nextDouble() * 100,
     ),
   );
 

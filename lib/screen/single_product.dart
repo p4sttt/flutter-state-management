@@ -48,6 +48,7 @@ class _ProductScreenState extends State<ProductScreen> {
         builder: (context, snapshot) {
           if (snapshot.hasData && snapshot.data != null) {
             final product = snapshot.data!;
+
             return Consumer<CartModel>(
               builder: (context, cart, child) {
                 return Column(
@@ -96,9 +97,9 @@ class _ProductScreenState extends State<ProductScreen> {
                           borderRadius: BorderRadius.circular(8),
                         ),
                         alignment: const Alignment(0.0, 0.0),
-                        child: const Text(
-                          "Add to cart",
-                          style: TextStyle(
+                        child: Text(
+                          "Buy for ${product.price.toStringAsFixed(2)}\$",
+                          style: const TextStyle(
                             color: Colors.white,
                             fontSize: 16,
                             fontWeight: FontWeight.bold,

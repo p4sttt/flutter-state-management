@@ -1,5 +1,3 @@
-import 'dart:developer';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_state_management/screen/single_product.dart';
 
@@ -18,11 +16,10 @@ class ProductCard extends StatelessWidget {
   final double price;
 
   void _onTap(BuildContext context) {
-    log("none");
     Navigator.pushNamed(
-        context,
-        ProductScreen.route,
-        arguments: ProductScreenArguments(id),
+      context,
+      ProductScreen.route,
+      arguments: ProductScreenArguments(id),
     );
   }
 
@@ -66,7 +63,7 @@ class ProductCard extends StatelessWidget {
                 borderRadius: BorderRadius.circular(999),
               ),
               child: Text(
-                "$price\$",
+                "${price.toStringAsFixed(2)}\$",
                 style: const TextStyle(
                   fontSize: 12,
                   fontWeight: FontWeight.w500,

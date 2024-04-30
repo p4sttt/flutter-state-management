@@ -1,5 +1,3 @@
-import 'dart:math' as math;
-
 import 'package:flutter/material.dart';
 import 'package:flutter_state_management/api/products_api.dart';
 import 'package:flutter_state_management/model/product_item.dart';
@@ -51,15 +49,17 @@ class _ProductsScreenState extends State<ProductsScreen> {
           future: _products,
           builder: (context, snapshot) {
             if (snapshot.hasData && snapshot.data != null) {
+              final products = snapshot.data!;
+
               return Expanded(
                 child: ListView.builder(
                   itemBuilder: (context, index) => ProductCard(
-                    id: index.toString(),
-                    name: "Product $index",
-                    description: "This is description for product at index: $index",
-                    price: math.Random().nextInt(100).toDouble() + 10.0,
+                    id: products.elementAt(index).id,
+                    name: products.elementAt(index).name,
+                    description: products.elementAt(index).description,
+                    price: products.elementAt(index).price,
                   ),
-                  itemCount: 25,
+                  itemCount: products.length,
                 ),
               );
             } else if (snapshot.hasData && snapshot.data == null) {
